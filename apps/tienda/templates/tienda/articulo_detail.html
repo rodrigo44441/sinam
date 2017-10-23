@@ -1,0 +1,45 @@
+{% extends "tienda/base.html" %}
+
+{% block title %} {{ articulo.nombre | capfirst }} {% endblock title %}
+
+{% block head %}
+{% endblock head %}
+
+{% block content %}
+
+
+<section class="col-xs-12">
+  <div class="titulo">
+    <p>
+      {{ articulo.nombre | capfirst }}
+    </p>
+    <div class="compartir">
+      <span class="ion-android-share-alt"></span>
+      <a class="ion-social-facebook" href="https://www.facebook.com/share.php?u=https://platzi.com/tienda/{{ articulo.slug }}"></a>
+      <a class="ion-social-twitter" href="https://twitter.com/intent/tweet?text={{ articulo.nombre }};url=http://www.sinam.com.uy/tienda/{{ articulo.slug }}" target="_blank"></a>
+      <a class="ion-social-googleplus" href="https://plus.google.com/share?url=https://platzi.com/tienda/{{ articulo.slug }}"></a>
+      <a class="ion-social-whatsapp" href="whatsapp://send?text=Visita: {{ articulo.nombre }} - http://www.sinam.com.uy/tienda/{{ articulo.slug }}" data-action="share/whatsapp/share" target="_blank"></a>
+    </div>
+  </div>
+  
+  <div class="articulo">
+    <article class="detail col-xs-12">
+      {% load static from staticfiles %}
+        {% if articulo.image1 %}
+            <div class="imagen1">
+                <img src="{{ MEDIA_URL }} {{ articulo.image1.url }}" alt=""/>
+            </div>
+        {% endif %}
+        <p>{{ articulo.descripcion }}</p>
+        <div class="detalles-detail">
+          <a class="categoria"> {{ articulo.categoria }} </a>
+          <div class="precio">$ {{ articulo.precio |floatformat:"0" }}</div>
+          <div class="comprar">{{ articulo.mp | safe }}</div>
+        </div>
+    </article>
+  </div>
+</section>
+
+{% endblock content %}
+
+{% block js %}{% endblock js %}

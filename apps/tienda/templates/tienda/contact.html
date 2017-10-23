@@ -1,0 +1,39 @@
+{% extends "tienda/base.html" %}
+
+{% block content %}
+
+
+<section class="col-xs-12">
+  <div class="titulo">
+    Contacto
+  </div>
+	<div id="contacto">
+	  	<ul>
+	      {% for var in variable %}
+	      <li>
+	        <address class="span ion-ios-home">&nbsp; {{ var.direccion }}</address>
+	      </li>
+	      <li>
+	        <time class="span ion-clock">&nbsp; {{ var.horario }}</time>
+	      </li>
+	      <li>
+	        <p class="span ion-ios-telephone">&nbsp; {{ var.telefono1 }}</p>
+	      </li>
+	      {% if var.email %}
+	      <li> 
+	        <p class="span ion-email">&nbsp; {{ var.email }}</p>
+	      </li>
+	      {% endif %}
+	      <li> 
+	        <p> {{ var.mapa | safe }}</p>
+	      </li>
+	      {% endfor %}
+	     </ul>
+		 <form action="." method="POST" >
+		   {% csrf_token %}
+		   {{ form.as_p }}
+		   <input type="submit" value="Enviar">
+		 </form>
+  </div>		
+</section>
+{% endblock content %}

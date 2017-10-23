@@ -1,0 +1,38 @@
+{% extends "tienda/base.html" %}
+
+{% block content %}
+
+
+<section class="col-xs-12">
+  <div class="articules col-xs-12">
+  {% for article in object_list %}
+    <article class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      {% load static from staticfiles %}
+      {% if article.image1 %}
+      <a class="imagen1" href="{{ article.slug }}">
+          <img src="{{ MEDIA_URL }} {{ article.image1.url }}" alt=""/>
+      </a>
+      {% endif %}
+      <div class="datos">
+        <a href="{{ article.slug }}">{{ article.nombre | capfirst }}</a>
+        <div class="detalles-list">
+          <div class="categoria">{{ article.categoria | capfirst }}</div>
+          <div class="precio">$ {{ article.precio |floatformat:"0" }}</div>
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+  </div>
+
+    <div class="paginacion">
+          <ul>
+            {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}"> <span class="ion-chevron-left"><span class="ion-chevron-left"> anterior </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}"> siguinte <span class="ion-chevron-right"></span><span class="ion-chevron-right"></a></li>
+            {% endif %}
+          </ul>
+        </div>
+</section>
+{% endblock content %}

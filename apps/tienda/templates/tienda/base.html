@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock title %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css"/>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
+    {% load staticfiles %}
+
+    {% block css %}
+      <link rel="stylesheet" href="{% static 'tienda/css/main.css' %}">
+    {% endblock css %}
+    {% block head %}{% endblock head %}
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="top">
+        <div class="topname">SINAM venta de insumos médicos <span class="ion-medkit"></span></div>
+        <div class="topredes">
+          {% for redes in variableredes %}
+            <a href="{{ redes.link }}" class=" topred span {{ redes.icono }}"></a>
+          {% endfor %}
+        </div>
+      </div>
+      <header class="col-xs-12">
+        <div class="logo col-xs-10 col-sm-2 col-md-2 col-lg-5">
+          <img class="logo" src="https://image.ibb.co/dxxsJa/logo_icono.png" alt=""/>
+          <img class="nombre" src="https://image.ibb.co/cLveya/logo_nombre.png" alt=""/>
+        </div>
+          <nav class="col-xs-1 col-sm-10 col-md-10 col-lg-7">
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu" class="ion-navicon-round"></label>
+            <div class="items">
+              <a href="/">Inicio</a>
+              <a href="#Nosotros">Nosotros</a>
+              <a href="#Faq" >Comprar (FAQ)</a>
+              <a href="/contact/">Contacto</a>
+            </div>  
+          <div id="Faq" class="modal">
+            <div class="modal-contenido">
+              <a href="#" class="ion-close-circled"></a>
+              {% for faq in variablefaq %}
+                <p class="pregunta">{{ faq.pregunta }}</p>
+                <p class="respuesta">{{ faq.respuesta }}</p>
+              {% endfor %}
+            </div>  
+          </div>
+
+          <div id="Nosotros" class="modal">
+            <div class="modal-contenido">
+              <a href="#" class="ion-close-circled"></a>
+              {% for nos in variablenosotros %}
+                <p class="pregunta">{{ nos.titulo }}</p>
+                <p class="respuesta">{{ nos.desarrollo }}</p>
+              {% endfor %}
+            </div>  
+          </div>
+
+          <form action="/buscar" method="GET">
+            <input type="text" placeholder="buscar..." name="q"/>
+            <button class="ion-android-search" type="submit"></button>
+          </form>
+        </nav>
+      </header>
+
+      {% block content %}{% endblock content %}
+    
+      <footer>
+        <ul>
+          {% for var in variable %}
+          <li>
+            <address class="span ion-ios-home">&nbsp; {{ var.direccion }}</address>
+          </li>
+          <li>
+            <time class="span ion-clock">&nbsp; {{ var.horario }}</time>
+          </li>
+          <li>
+            <p class="span ion-ios-telephone">&nbsp; {{ var.telefono1 }}</p>
+          </li>
+          <li> 
+            <p class="span ion-email">&nbsp; {{ var.email }}</p>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <div class="redes">
+          {% for redes in variableredes %}
+            <a class="span {{ redes.icono }}" href="{{ redes.link }}" ></a>
+          {% endfor %}
+        </div>
+      </footer>
+    </div>
+    
+    <div class="indarra">
+      <p>Desarrollado por <span>INDARRA</span></p>
+    </div>
+    {% block js %}
+      <script src="{% static 'js/main.js' %}"></script>
+    {% endblock js %}
+  </body>
+</html>
