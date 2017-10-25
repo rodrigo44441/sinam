@@ -1,5 +1,8 @@
 # Created by https://www.gitignore.io/api/linux,django,python,stylus,sublimetext
 
+### Ignoramos los bash ###
+*.sh
+
 ### Django ###
 *.log
 *.pot
