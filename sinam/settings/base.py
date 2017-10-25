@@ -11,10 +11,7 @@ BASE_DIR = Path(__file__).ancestor(3)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'p+v%c#=c@0sux%^=ayv5^agpltt8ob^an=c4ity9f7#*lifj1n'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
