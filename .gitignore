@@ -125,7 +125,7 @@ ENV/
 /site
 
 ### Stylus ###
-*.css
+*.styl
 
 ### SublimeText ###
 # cache files for sublime text
