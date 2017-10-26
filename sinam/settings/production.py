@@ -47,7 +47,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATIC_ROOT='/opt/statics/sinam/'
+# STATIC_ROOT='/opt/statics/sinam/'
 STATIC_URL = '/static/'
 
 
