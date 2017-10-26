@@ -1,4 +1,6 @@
-#import os
+from django.core.exceptions import ImproperlyConfigured
+
+import os
 
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -9,9 +11,16 @@ BASE_DIR = Path(__file__).ancestor(3)
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p+v%c#=c@0sux%^=ayv5^agpltt8ob^an=c4ity9f7#*lifj1n'
 
 
+def get_env_variable(var_name):
+    try:
+        return os.environ[var_name]
+    except:
+        msg = "La variable %s no existe" % var_name
+        raise ImproperlyConfigured(msg)
+
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -76,7 +85,7 @@ WSGI_APPLICATION = 'sinam.wsgi.application'
 
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 

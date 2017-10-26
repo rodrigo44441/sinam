@@ -6,9 +6,16 @@ from .models import Categoria, Articulo
 #from .forms import AddCategory
 
 
+@admin.register(Articulo)
+class ArticuloAdmin(admin.ModelAdmin):
+	list_display = ('id', 'nombre', 'precio', 'orden', 'activo')
+	list_display_links = ('id', 'nombre')
+	#filter_vertical = ('activo')
+	list_filter = ('activo', 'categoria')
+
 
 admin.site.register(Categoria)
-admin.site.register(Articulo)
+#admin.site.register(Articulo)
 
 '''class AdminCategoria(admin.ModelAdmin):
 	form = AddCategory

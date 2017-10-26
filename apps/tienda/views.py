@@ -19,9 +19,9 @@ from .forms import ContactForm
 
 class ArticleList(ListView):
     model = Articulo
-    queryset_list = Articulo.objects.all().order_by('-id')
-    paginate_by = 4
-    ordering = ['-id']
+    queryset_list = Articulo.objects.all().filter(activo=True)
+    paginate_by = 16
+    ordering = ['-orden', '-id']
 
 
 class ArticleDetail(DetailView):
