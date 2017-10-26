@@ -12,6 +12,8 @@ class ArticuloAdmin(admin.ModelAdmin):
 	list_display_links = ('id', 'nombre')
 	#filter_vertical = ('activo')
 	list_filter = ('activo', 'categoria')
+	search_fields = ('nombre', 'descripcion')
+	list_editable = ('orden',)
 
 
 admin.site.register(Categoria)
