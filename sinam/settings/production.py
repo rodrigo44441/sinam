@@ -51,8 +51,8 @@ STATIC_ROOT='/opt/statics/sinam/'
 STATIC_URL = '/static/'
 
 
-MEDIA_ROOT = '/opt/statics/sinam/'
-#MEDIA_ROOT = BASE_DIR.child('media')
+#MEDIA_ROOT = '/opt/statics/sinam/media/'
+MEDIA_ROOT = BASE_DIR.child('media')
 MEDIA_URL = '/media/'
 
 
