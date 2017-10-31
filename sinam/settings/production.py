@@ -1,7 +1,7 @@
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -51,7 +51,7 @@ STATIC_ROOT='/opt/statics/sinam/'
 STATIC_URL = '/static/'
 
 
-MEDIA_ROOT = '~/venv/media/'
+MEDIA_ROOT = '/opt/statics/sinam/'
 #MEDIA_ROOT = BASE_DIR.child('media')
 MEDIA_URL = '/media/'
 
