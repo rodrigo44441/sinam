@@ -51,7 +51,7 @@ STATIC_ROOT='/opt/statics/sinam/'
 STATIC_URL = '/static/'
 
 
-MEDIA_ROOT = '/root/venv/'
+MEDIA_ROOT = '~/venv/media/'
 #MEDIA_ROOT = BASE_DIR.child('media')
 MEDIA_URL = '/media/'
 
