@@ -51,9 +51,9 @@ STATIC_ROOT='/opt/statics/sinam/'
 STATIC_URL = '/static/'
 
 
-MEDIA_ROOT = '/opt/statics/sinam/'
-#MEDIA_ROOT = BASE_DIR.child('media')
-MEDIA_URL = '/media/'
+#MEDIA_ROOT = '/opt/statics/sinam/'
+MEDIA_ROOT = BASE_DIR.child('media')
+MEDIA_URL = '/opt/statics/sinam/media/'
 
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates')]
