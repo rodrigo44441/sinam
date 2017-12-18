@@ -26,10 +26,107 @@
     <article class="detail col-xs-12">
       {% load static from staticfiles %}
         {% if articulo.image1 %}
-            <div class="imagen1">
+              <div class="imagen1">
                 <img src="{{ MEDIA_URL }} {{ articulo.image1.url }}" alt=""/>
             </div>
         {% endif %}
+
+        <div class="miniaturas col-xs-12">
+          {% if articulo.image1 %}
+              <div class="galeria">
+              <a href="#img1">
+                <img src="{{ MEDIA_URL }} {{ articulo.image1.url }}" alt=""/>
+              </a>
+              </div>
+          {% endif %}
+          {% load static from staticfiles %}
+            {% if articulo.image2 %}
+              <div class="galeria">
+              <a href="#img2">
+                <img src="{{ MEDIA_URL }} {{ articulo.image2.url }}" alt=""/>
+              </a>
+              </div>
+          {% endif %}
+          {% if articulo.image3 %}
+              <div class="galeria">
+              <a href="#img3">
+                <img src="{{ MEDIA_URL }} {{ articulo.image3.url }}" alt=""/>
+              </a>
+              </div>
+          {% endif %}
+          {% if articulo.image4 %}
+              <div class="galeria">
+              <a href="#img4">
+                <img src="{{ MEDIA_URL }} {{ articulo.image4.url }}" alt=""/>
+              </a>
+              </div>
+          {% endif %}
+          {% if articulo.image5 %}
+              <div class="galeria">
+              <a href="#img5">
+                <img src="{{ MEDIA_URL }} {{ articulo.image5.url }}" alt=""/>
+              </a>
+              </div>
+          {% endif %}          
+        </div>
+
+        {% if articulo.image1 %}
+        <div id="img1" class="lbox">
+          <div class="box_img">
+            <a href="#img5" id="prev" class="btn">&#171;</a>
+            <a href="" id="close" class="btn">X</a>
+            <img src="{{ MEDIA_URL }} {{ articulo.image1.url }}" alt="">
+            <a href="#img2" id="next" class="btn">&#187;</a>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if articulo.image2 %}
+        <div id="img2" class="lbox">
+          <div class="box_img">
+            <a href="#img1" id="prev" class="btn">&#171;</a>
+            <a href="" id="close" class="btn">X</a>
+            {% load static from staticfiles %}
+            <img src="{{ MEDIA_URL }} {{ articulo.image2.url }}" alt="">
+            <a href="#img3" id="next" class="btn">&#187;</a>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if articulo.image3 %}
+        <div id="img3" class="lbox">
+          <div class="box_img">
+            <a href="#img2" id="prev" class="btn">&#171;</a>
+            <a href="" id="close" class="btn">X</a>
+            <img src="{{ MEDIA_URL }} {{ articulo.image3.url }}" alt="">
+            <a href="#img4" id="next" class="btn">&#187;</a>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if articulo.image4 %}
+        <div id="img4" class="lbox">
+          <div class="box_img">
+            <a href="#img3" id="prev" class="btn">&#171;</a>
+            <a href="" id="close" class="btn">X</a>
+            <img src="{{ MEDIA_URL }} {{ articulo.image4.url }}" alt="">
+            <a href="#img5" id="next" class="btn">&#187;</a>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if articulo.image5 %}
+        <div id="img5" class="lbox">
+          <div class="box_img">
+            <a href="#img4" id="prev" class="btn">&#171;</a>
+            <a href="" id="close" class="btn">X</a>
+            <img src="{{ MEDIA_URL }} {{ articulo.image5.url }}" alt="">
+            <a href="#img1" id="next" class="btn">&#187;</a>
+          </div>
+        </div>
+        {% endif %}
+
+
         <p>{{ articulo.descripcion }}</p>
         <div class="detalles-detail">
           <a class="categoria"> {{ articulo.categoria }} </a>
